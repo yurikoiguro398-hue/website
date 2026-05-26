@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理学療法士(PT)ナビ | その一歩を、共に創る。</title>
+    <style>
+        /* =========================================
+           ベーススタイル・リセット
+           ========================================= */
+        :root {
+            --primary-color: #0056b3; /* 信頼感のあるメインの青 */
+            --secondary-color: #e6f0fa; /* 薄い青（背景など） */
+            --text-color: #333333; /* 読みやすい濃いグレー */
+            --bg-color: #ffffff;
+            --light-gray: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            /* ページ内リンクでスムーズにスクロールさせる */
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* =========================================
+           共通レイアウト
+           ========================================= */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 40px 0; /* 余白を詰めて間延びを防ぐ（元80px） */
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 30px; /* 余白を詰める（元40px） */
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* =========================================
+           ヘッダー
+           ========================================= */
+        header {
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .global-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .global-nav li {
+            margin-left: 20px;
+        }
+
+        .global-nav a {
+            font-weight: bold;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .global-nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* =========================================
+           ヒーローセクション (メインビジュアル)
+           ========================================= */
+        .hero {
+            margin-top: 70px; /* ヘッダーの高さ分下げる */
+            position: relative;
+            padding: 100px 0; /* 上下の余白を少し詰める */
+            text-align: center;
+            color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+
+        /* ヒーローセクションの背景動画設定 */
+        .hero-video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* 動画の上のオーバーレイ（暗くして文字を読みやすくする） */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 86, 179, 0.6); /* 青みがかった半透明 */
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* =========================================
+           理学療法士とは？
+           ========================================= */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* コンテンツ間の余白を詰める（元40px） */
+        }
+
+        .about-row {
+            display: flex;
+            align-items: center;
+            gap: 30px; /* 画像とテキストの余白を詰める（元40px） */
+        }
+        
+        .about-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        /* =========================================
+           必要なスキル (画像付きカードレイアウト)
+           ========================================= */
+        .skills-bg {
+            background-color: var(--light-gray);
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .card {
+            background-color: var(--bg-color);
+            border-radius: 10px;
+            flex: 1;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            overflow: hidden; /* 画像が角丸からはみ出ないように */
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 25px 20px;
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        /* =========================================
+           国家試験について
+           ========================================= */
+        .exam-content {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .exam-text {
+            flex: 1;
+        }
+
+        .exam-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .exam-text p {
+            margin-bottom: 15px;
+        }
+
+        .exam-image {
+            flex: 1;
+        }
+
+        .exam-image img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .point-box {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .point-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* =========================================
+           フッター
+           ========================================= */
+        footer {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           レスポンシブデザイン (スマートフォン対応)
+           ========================================= */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                justify-content: center;
+                height: auto;
+                padding: 10px 0;
+            }
+
+            .global-nav ul {
+                margin-top: 10px;
+            }
+
+            .global-nav li {
+                margin: 0 10px;
+            }
+
+            .hero {
+                padding: 80px 0;
+                min-height: 60vh;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-row, .about-row.reverse, .exam-content {
+                flex-direction: column; /* スマホでは縦並びに変更 */
+            }
+
+            .cards {
+                flex-direction: column; /* カードも縦並びに */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">理学療法士(PT)ナビ</div>
+            <nav class="global-nav">
+                <ul>
+                    <li><a href="#about">PTとは</a></li>
+                    <li><a href="#skills">必要なスキル</a></li>
+                    <li><a href="#exam">国家試験</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. ヒーローセクション (背景動画) -->
+        <section class="hero">
+            <!-- 背景動画 (仮の動画URLを設定) -->
+            <video class="hero-video-bg" autoplay loop muted playsinline poster="https://placehold.co/1920x1080/0056b3/ffffff?text=Loading+Video...">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                お使いのブラウザは動画タグをサポートしていません。
+            </video>
+            <div class="hero-overlay"></div>
+            
+            <div class="container hero-content">
+                <h1>その一歩を、共に創る。<br>理学療法士という選択。</h1>
+                <p>人々の「動く喜び」を取り戻す、<br>医療とリハビリテーションのスペシャリストを目指そう。</p>
+            </div>
+        </section>
+
+        <!-- 2. 理学療法士とは？ -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">理学療法士とは？</h2>
+                <div class="about-content">
+                    
+                    <div class="about-row">
+                        <div class="about-image">
+                            <img src="https://placehold.co/600x400/e6f0fa/0056b3?text=Rehabilitation+Support" alt="患者様の歩行訓練をサポートする様子">
+                        </div>
+                        <div class="about-text">
+                            <h3>「動作の専門家」として生きる</h3>
+                            <p>理学療法士（Physical Therapist, PT）は、ケガや病気、加齢などで身体に障害のある人や、障害の発生が予測される人に対して、基本動作能力（座る、立つ、歩くなど）の回復や維持を支援する医療専門職です。</p>
+                            <p>運動療法（体操や筋力トレーニング）や物理療法（温熱、電気などの刺激）を用いて、患者様が再び自分らしい自立した日常生活を送れるよう、長期的な視点で寄り添いサポートします。</p>
+                        </div>
+                    </div>
+
+                    <div class="about-row reverse">
+                        <div class="about-image">
+                            <img src="https://placehold.co/600x400/e6f0fa/0056b3?text=Team+Medical+Care" alt="チーム医療の様子">
+                        </div>
+                        <div class="about-text">
+                            <h3>多様なフィールドで活躍</h3>
+                            <p>活躍の場は病院やクリニックだけでなく、介護老人保健施設やデイケアなどの福祉施設、訪問リハビリテーション、スポーツチームのトレーナー、さらには行政機関での健康増進事業など、多岐にわたります。</p>
+                            <p>医師や看護師、作業療法士（OT）など、様々な専門職と連携する「チーム医療」の重要な一員として、社会に大きく貢献できるやりがいのある仕事です。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 必要なスキル (画像を追加) -->
+        <section id="skills" class="skills-bg">
+            <div class="container">
+                <h2 class="section-title">PTに求められるスキル</h2>
+                <div class="cards">
+                    <div class="card">
+                        <img src="https://placehold.co/400x300/e6f0fa/0056b3?text=Knowledge" alt="解剖学の学習" class="card-img">
+                        <div class="card-body">
+                            <h3>解剖学・生理学の知識</h3>
+                            <p>身体の構造や機能の仕組みを正確に理解する力が不可欠です。筋肉や骨格の動き、神経系の働きなど、確かな医学的知識が安全で効果的なリハビリの土台となります。</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://placehold.co/400x300/e6f0fa/0056b3?text=Communication" alt="患者様との対話" class="card-img">
+                        <div class="card-body">
+                            <h3>コミュニケーション能力</h3>
+                            <p>患者様の不安や痛みに寄り添い、信頼関係を築く対話力が必要です。適切な目標を設定し、モチベーションを引き出すことも理学療法士の重要な役割の一つです。</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://placehold.co/400x300/e6f0fa/0056b3?text=Observation" alt="動作の分析" class="card-img">
+                        <div class="card-body">
+                            <h3>観察力と分析力</h3>
+                            <p>患者様のわずかな動きの癖や、表情の変化を見逃さない観察眼が求められます。その上で原因を分析し、最適なプログラムを立案する論理的思考力が問われます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 国家試験について -->
+        <section id="exam">
+            <div class="container">
+                <h2 class="section-title">国家試験について</h2>
+                <div class="exam-content">
+                    <div class="exam-image">
+                        <img src="https://placehold.co/600x400/e6f0fa/0056b3?text=National+Examination" alt="国家試験の勉強に取り組む学生">
+                    </div>
+                    <div class="exam-text">
+                        <h3>資格取得までの道のり</h3>
+                        <p>理学療法士として働くためには、厚生労働省が指定する養成校（4年制大学、短期大学、3年制または4年制の専門学校）で3年以上学び、必要なカリキュラムを修了した上で「理学療法士国家試験」に合格し、免許を取得する必要があります。</p>
+                        
+                        <div class="point-box">
+                            <h4>学習のポイント・勉強方法</h4>
+                            <p>出題範囲は、解剖学・生理学・運動学などの「基礎医学」から、整形外科学などの「臨床医学」、そして「理学療法専門分野」まで多岐にわたります。</p>
+                            <p><strong>合格の鍵：</strong> 早い段階から過去問に取り組み出題傾向を掴むことと、単なる暗記ではなく「なぜそうなるのか」という基礎知識の徹底的な理解（機序の理解）が重要です。実習と並行した学習スケジュール管理も必須となります。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 理学療法士(PT)ナビ. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
