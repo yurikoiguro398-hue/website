@@ -55,14 +55,14 @@
         }
 
         section {
-            padding: 40px 0; /* 余白を詰めて間延びを防ぐ（元80px） */
+            padding: 40px 0;
         }
 
         .section-title {
             text-align: center;
             font-size: 2rem;
             color: var(--primary-color);
-            margin-bottom: 30px; /* 余白を詰める（元40px） */
+            margin-bottom: 30px;
             position: relative;
         }
 
@@ -124,9 +124,9 @@
            ヒーローセクション (メインビジュアル)
            ========================================= */
         .hero {
-            margin-top: 70px; /* ヘッダーの高さ分下げる */
+            margin-top: 70px;
             position: relative;
-            padding: 100px 0; /* 上下の余白を少し詰める */
+            padding: 100px 0;
             text-align: center;
             color: #ffffff;
             overflow: hidden;
@@ -134,20 +134,22 @@
             align-items: center;
             justify-content: center;
             min-height: 80vh;
+            background-color: var(--primary-color); /* 読み込み時の背景色 */
         }
 
-        /* ヒーローセクションの背景動画設定 */
-        .hero-video-bg {
+        /* ヒーローセクションの背景動画設定（YouTube用） */
+        .hero-youtube-bg {
             position: absolute;
             top: 50%;
             left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -2;
+            /* 16:9の比率を保ったまま画面全体を覆う計算式 */
+            width: 100vw;
+            height: 56.25vw; 
+            min-height: 100vh;
+            min-width: 177.77vh; 
             transform: translate(-50%, -50%);
-            object-fit: cover;
+            pointer-events: none; /* YouTubeのUIを触れないようにする */
+            z-index: -2;
         }
 
         /* 動画の上のオーバーレイ（暗くして文字を読みやすくする） */
@@ -188,13 +190,13 @@
         .about-content {
             display: flex;
             flex-direction: column;
-            gap: 25px; /* コンテンツ間の余白を詰める（元40px） */
+            gap: 25px;
         }
 
         .about-row {
             display: flex;
             align-items: center;
-            gap: 30px; /* 画像とテキストの余白を詰める（元40px） */
+            gap: 30px;
         }
         
         .about-row.reverse {
@@ -239,7 +241,7 @@
             border-radius: 10px;
             flex: 1;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            overflow: hidden; /* 画像が角丸からはみ出ないように */
+            overflow: hidden;
             transition: transform 0.3s;
         }
 
@@ -354,18 +356,17 @@
             }
 
             .about-row, .about-row.reverse, .exam-content {
-                flex-direction: column; /* スマホでは縦並びに変更 */
+                flex-direction: column;
             }
 
             .cards {
-                flex-direction: column; /* カードも縦並びに */
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ヘッダー -->
     <header>
         <div class="container header-inner">
             <div class="logo">理学療法士(PT)ナビ</div>
@@ -380,10 +381,8 @@
     </header>
 
     <main>
-        <!-- 1. ヒーローセクション (背景動画) -->
         <section class="hero">
-            <!-- 背景動画 (仮の動画URLを設定) -->
-           <iframe class="hero-youtube-bg" 
+            <iframe class="hero-youtube-bg" 
                 src="https://www.youtube.com/embed/6HW3zvbOajs?autoplay=1&mute=1&controls=0&loop=1&playlist=6HW3zvbOajs&playsinline=1&rel=0" 
                 frameborder="0" 
                 allow="autoplay; encrypted-media" 
@@ -397,7 +396,6 @@
             </div>
         </section>
 
-        <!-- 2. 理学療法士とは？ -->
         <section id="about">
             <div class="container">
                 <h2 class="section-title">理学療法士とは？</h2>
@@ -429,7 +427,6 @@
             </div>
         </section>
 
-        <!-- 3. 必要なスキル (画像を追加) -->
         <section id="skills" class="skills-bg">
             <div class="container">
                 <h2 class="section-title">PTに求められるスキル</h2>
@@ -459,7 +456,6 @@
             </div>
         </section>
 
-        <!-- 4. 国家試験について -->
         <section id="exam">
             <div class="container">
                 <h2 class="section-title">国家試験について</h2>
@@ -482,7 +478,6 @@
         </section>
     </main>
 
-    <!-- フッター -->
     <footer>
         <div class="container">
             <p>&copy; 2026 理学療法士(PT)ナビ. All Rights Reserved.</p>
