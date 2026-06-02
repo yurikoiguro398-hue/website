@@ -9,9 +9,9 @@
            ベーススタイル・リセット
            ========================================= */
         :root {
-            --primary-color: #0056b3; /* 信頼感のあるメインの青 */
-            --secondary-color: #e6f0fa; /* 薄い青（背景など） */
-            --text-color: #333333; /* 読みやすい濃いグレー */
+            --primary-color: #0056b3;
+            --secondary-color: #e6f0fa;
+            --text-color: #333333;
             --bg-color: #ffffff;
             --light-gray: #f8f9fa;
         }
@@ -23,7 +23,6 @@
         }
 
         html {
-            /* ページ内リンクでスムーズにスクロールさせる */
             scroll-behavior: smooth;
         }
 
@@ -134,7 +133,7 @@
             align-items: center;
             justify-content: center;
             min-height: 80vh;
-            background-color: var(--primary-color); /* 読み込み時の背景色 */
+            background-color: #000000; /* 動画読み込み前は黒背景にしておく */
         }
 
         /* ヒーローセクションの背景動画設定（YouTube用） */
@@ -142,14 +141,13 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            /* 16:9の比率を保ったまま画面全体を覆う計算式 */
             width: 100vw;
             height: 56.25vw; 
             min-height: 100vh;
             min-width: 177.77vh; 
             transform: translate(-50%, -50%);
-            pointer-events: none; /* YouTubeのUIを触れないようにする */
-            z-index: -2;
+            pointer-events: none; 
+            z-index: 0; /* ★背景を手前に修正 */
         }
 
         /* 動画の上のオーバーレイ（暗くして文字を読みやすくする） */
@@ -159,13 +157,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 86, 179, 0.6); /* 青みがかった半透明 */
-            z-index: -1;
+            background: rgba(0, 86, 179, 0.6); 
+            z-index: 1; /* ★オーバーレイを手前に修正 */
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2; /* ★テキストを一番手前に修正 */
             max-width: 800px;
             margin: 0 auto;
         }
@@ -224,7 +222,7 @@
         }
 
         /* =========================================
-           必要なスキル (画像付きカードレイアウト)
+           必要なスキル
            ========================================= */
         .skills-bg {
             background-color: var(--light-gray);
