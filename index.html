@@ -215,10 +215,13 @@
             flex: 1;
         }
 
-        .about-image img {
+        /* ここに video タグのスタイルを追記しました */
+        .about-image img,
+        .about-image video {
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             width: 100%;
+            display: block;
         }
 
         /* =========================================
@@ -401,7 +404,9 @@
                     
                     <div class="about-row">
                         <div class="about-image">
-                            <img src="https://placehold.co/600x400/e6f0fa/0056b3?text=Rehabilitation+Support" alt="患者様の歩行訓練をサポートする様子">
+                            <video src="ScreenRecording_06-02-2026 20-39-47_1.mov" controls playsinline>
+                                お使いのブラウザは動画タグをサポートしていません。
+                            </video>
                         </div>
                         <div class="about-text">
                             <h3>「動作の専門家」として生きる</h3>
