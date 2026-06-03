@@ -6,8 +6,8 @@
     <title>理学療法士(PT)ナビ | その一歩を、共に創る。</title>
     <style>
         /* =========================================
-            ベーススタイル・リセット
-            ========================================= */
+           ベーススタイル・リセット
+           ========================================= */
         :root {
             --primary-color: #0056b3;
             --secondary-color: #e6f0fa;
@@ -45,8 +45,8 @@
         }
 
         /* =========================================
-            共通レイアウト
-            ========================================= */
+           共通レイアウト
+           ========================================= */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -76,8 +76,8 @@
         }
 
         /* =========================================
-            ヘッダー
-            ========================================= */
+           ヘッダー
+           ========================================= */
         header {
             background-color: var(--bg-color);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -120,8 +120,8 @@
         }
 
         /* =========================================
-            ヒーローセクション (メインビジュアル)
-            ========================================= */
+           ヒーローセクション (メインビジュアル)
+           ========================================= */
         .hero {
             margin-top: 70px;
             position: relative;
@@ -133,10 +133,9 @@
             align-items: center;
             justify-content: center;
             min-height: 80vh;
-            background-color: #000000; /* 動画読み込み前は黒背景にしておく */
+            background-color: #000000;
         }
 
-        /* ヒーローセクションの背景動画設定（YouTube用） */
         .hero-youtube-bg {
             position: absolute;
             top: 50%;
@@ -147,10 +146,9 @@
             min-width: 177.77vh; 
             transform: translate(-50%, -50%);
             pointer-events: none; 
-            z-index: 0; 
+            z-index: 0;
         }
 
-        /* 動画の上のオーバーレイ（暗くして文字を読みやすくする） */
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -158,12 +156,12 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 86, 179, 0.6); 
-            z-index: 1; 
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2; 
+            z-index: 2;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -183,8 +181,8 @@
         }
 
         /* =========================================
-            理学療法士とは？
-            ========================================= */
+           理学療法士とは？
+           ========================================= */
         .about-content {
             display: flex;
             flex-direction: column;
@@ -221,29 +219,9 @@
             width: 100%;
         }
 
-        /* ★追加: 動画コンテナのレスポンシブ設定 (16:9) */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 アスペクト比 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px; /* 元の画像にあった角丸を適用 */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* 元の画像にあった影を適用 */
-            width: 100%;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none; /* iframeのボーダーを消す */
-        }
-
         /* =========================================
-            必要なスキル
-            ========================================= */
+           必要なスキル
+           ========================================= */
         .skills-bg {
             background-color: var(--light-gray);
         }
@@ -291,8 +269,8 @@
         }
 
         /* =========================================
-            国家試験について
-            ========================================= */
+           国家試験について
+           ========================================= */
         .exam-content {
             display: flex;
             flex-direction: row-reverse;
@@ -335,8 +313,8 @@
         }
 
         /* =========================================
-            フッター
-            ========================================= */
+           フッター
+           ========================================= */
         footer {
             background-color: var(--primary-color);
             color: #ffffff;
@@ -346,8 +324,8 @@
         }
 
         /* =========================================
-            レスポンシブデザイン (スマートフォン対応)
-            ========================================= */
+           レスポンシブデザイン (スマートフォン対応)
+           ========================================= */
         @media (max-width: 768px) {
             .header-inner {
                 flex-direction: column;
@@ -408,4 +386,99 @@
             </iframe> 
             <div class="hero-overlay"></div>
             
-            <div class="container hero-
+            <div class="container hero-content">
+                <h1>その一歩を、共に創る。<br>理学療法士という選択。</h1>
+                <p>人々の「動く喜び」を取り戻す<br>医療とリハビリテーションのスペシャリストを目指そう。</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">理学療法士とは？</h2>
+                <div class="about-content">
+                    
+                    <div class="about-row">
+                        <div class="about-image">
+                            <img src="photo1.png" alt="患者様の歩行訓練をサポートする様子">
+                        </div>
+                        <div class="about-text">
+                            <h3>「動作の専門家」として生きる</h3>
+                            <p>理学療法士（Physical Therapist, PT）は、ケガや病気、加齢などで身体に障害のある人や、障害の発生が予測される人に対して、基本動作能力（座る、立つ、歩くなど）の回復や維持を支援する医療専門職です。</p>
+                            <p>運動療法（体操や筋力トレーニング）や物理療法（温熱, 電気などの刺激）を用いて、患者様が再び自分らしい自立した日常生活を送れるよう、長期的な視点で寄り添いサポートします。</p>
+                        </div>
+                    </div>
+
+                    <div class="about-row reverse">
+                        <div class="about-image">
+                            <img src="photo2.png" alt="リハビリテーションの様子">
+                        </div>
+                        <div class="about-text">
+                            <h3>多様なフィールドで活躍</h3>
+                            <p>活躍の場は病院やクリニックだけでなく、介護老人保健施設やデイケアなどの福祉施設、訪問リハビリテーション、スポーツチームのトレーナー、さらには行政機関での健康増進事業など、多岐にわたります。</p>
+                            <p>医師や看護師、作業療法士（OT）など、様々な専門職と連携する「チーム医療」の重要な一員として、社会に大きく貢献できるやりがいのある仕事です。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-bg">
+            <div class="container">
+                <h2 class="section-title">PTに求められるスキル</h2>
+                <div class="cards">
+                    <div class="card">
+                        <img src="https://placehold.co/400x300/e6f0fa/0056b3?text=Knowledge" alt="解剖学の学習" class="card-img">
+                        <div class="card-body">
+                            <h3>解剖学・生理学の知識</h3>
+                            <p>身体の構造や機能の仕組みを正確に理解する力が不可欠です。筋肉や骨格の動き、神経系の働きなど、確かな医学的知識が安全で効果的なリハビリの土台となります。</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://placehold.co/400x300/e6f0fa/0056b3?text=Communication" alt="患者様との対話" class="card-img">
+                        <div class="card-body">
+                            <h3>コミュニケーション能力</h3>
+                            <p>患者様の不安や痛みに寄り添い、信頼関係を築く対話力が必要です。適切な目標を設定し、モチベーションを引き出すことも理学療法士の重要な役割の一つです。</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://placehold.co/400x300/e6f0fa/0056b3?text=Observation" alt="動作の分析" class="card-img">
+                        <div class="card-body">
+                            <h3>観察力と分析力</h3>
+                            <p>患者様のわずかな動きの癖や、表情の変化を見逃さない観察眼が求められます。その上で原因を分析し、最適なプログラムを立案する論理的思考力が問われます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="exam">
+            <div class="container">
+                <h2 class="section-title">国家試験について</h2>
+                <div class="exam-content">
+                    <div class="exam-image">
+                        <img src="https://placehold.co/600x400/e6f0fa/0056b3?text=National+Examination" alt="国家試験の勉強に取り組む学生">
+                    </div>
+                    <div class="exam-text">
+                        <h3>資格取得までの道のり</h3>
+                        <p>理学療法士として働くためには、厚生労働省が指定する養成校（4年制大学、短期大学、3年制または4年制の専門学校）で3年以上学び、必要なカリキュラムを修了した上で「理学療法士国家試験」に合格し、免許を取得する必要があります。</p>
+                        
+                        <div class="point-box">
+                            <h4>学習のポイント・勉強方法</h4>
+                            <p>出題範囲は、解剖学・生理学・運動学などの「基礎医学」から、整形外科学などの「臨床医学」、そして「理学療法専門分野」まで多岐にわたります。</p>
+                            <p><strong>合格の鍵：</strong> 早い段階から過去問に取り組み出題傾向を掴むことと、単なる暗記ではなく「なぜそうなるのか」という基礎知識の徹底的な理解（機序の理解）が重要です。実習と並行した学習スケジュール管理も必須となります。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 理学療法士(PT)ナビ. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
